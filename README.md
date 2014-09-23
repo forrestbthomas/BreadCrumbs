@@ -1,4 +1,4 @@
-##Tracker##
+##BreadCrumbs##
 
 An app that tracks users' locations for the day
 

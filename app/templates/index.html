@@ -1,15 +1,8 @@
-<html>
-  <head>
-    {% if title %}
-    <title>{{title}} - Tracker</title>
-    {% else %}
-    <title>Welcome to Tracker</title>
-    {% endif %}
-  </head>
-  <body>
-    <h1>Hello, {{user.name}}!</h1>
-    {% for place in locations %}
-    <p>You were at {{place.location}} for {{place.duration}} today</p>
-    {% endfor %}
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Hello, {{user.name}}!</h1>
+{% for place in locations %}
+<p>You were at {{place.location}} for {{place.duration}} today</p>
+{% endfor %}
+{% endblock %}
+

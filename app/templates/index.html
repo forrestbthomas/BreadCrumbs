@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Hello, {{user.name}}!</h1>
-{% for place in locations %}
-<p>You were at {{place.location}} for {{place.duration}} today</p>
+{% for place in locations  %}
+<p>You were at {{place.location}} at:</p>
+{% for time in times %} 
+<ul>
+<li>{{time.time}}</li> 
+</ul>
+{% endfor %}
 {% endfor %}
 {% endblock %}
 

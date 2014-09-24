@@ -31,20 +31,13 @@ def coords():
 @app.route('/index')
 def index():
   user = { 'name' : 'Forrest' }
-  locations = [
-  {
-    'location' : '2883 Sunny Wood Cir., Santa Rosa, CA',
-    'duration' : '20 minutes'
-  },
-  {
-    'location' : '1536 48th Ave., San Francisco, CA',
-    'duration' : '20 minutes'
-  }
-  ]
+  locations = models.Location.query.all()
+  times = models.Time.query.all()
   return render_template("index.html", 
     title = 'Home',
     user = user,
-    locations = locations)
+    locations = locations,
+    times = times)
   
 @app.route('/')
 @app.route('/login', methods = ['GET', 'POST'])

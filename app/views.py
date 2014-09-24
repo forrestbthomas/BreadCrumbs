@@ -9,19 +9,19 @@ def coords():
   lon = request.form['longitude']
   coords = str(lat) + ', ' + str(lon)
 
-  u = models.User(name='Forrest Thomas', email='forrestbthomas@gmail.com')
-  db.session.add(u)
-  user = models.User.query.get(1)
+  # u = models.User(name='Forrest Thomas', email='forrestbthomas@gmail.com')
+  # db.session.add(u)
+  # user = models.User.query.get(1)
 
-  d = models.Date(date=str(datetime.date.today()), user_id=user.id)
-  db.session.add(d)
-  date = models.Date.query.get(1)
+  # d = models.Date(date=str(datetime.date.today()), user_id=user.id)
+  # db.session.add(d)
+  # date = models.Date.query.get(1)
 
-  l = models.Location(location=coords, date_id=date.id)
-  db.session.add(l)
+  # l = models.Location(location=coords, date_id=date.id)
+  # db.session.add(l)
   location = models.Location.query.get(1)
 
-  t = models.Time(time=str(datetime.datetime.now().time), location_id=location.id)
+  t = models.Time(time=str(datetime.datetime.now().time()), location_id=location.id)
   db.session.add(t)
   time = models.Time.query.get(1)
 

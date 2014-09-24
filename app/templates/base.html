@@ -19,5 +19,14 @@
   {% endif %}
   {% endwith %}
   {% block content %}{% endblock %}
+  <script type="text/javascript">
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        console.log('You\'re current position is: ', pos.coords.latitude, 'latitude by ', pos.coords.longitude, ' longitude.');
+      })
+    } else {
+      console.log('I\'m sorry...perhaps you should upgrade your browser to one that is useful.');
+    }
+  </script> 
 </body>
 </html>

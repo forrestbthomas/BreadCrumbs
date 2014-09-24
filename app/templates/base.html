@@ -19,11 +19,19 @@
   {% endif %}
   {% endwith %}
   {% block content %}{% endblock %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
     var coordGetter = function(){
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(pos) {
-          console.log('You\'re current position is: ', pos.coords.latitude, 'latitude by ', pos.coords.longitude, ' longitude.');
+          $.ajax({
+            type: 'POST',
+            url: '/coords',
+            data: pos.coords,
+            success: function(err, res, func) {
+              console.log(arguments)
+            }
+          })
         });
       } else {
         console.log('I\'m sorry...perhaps you should upgrade your browser to one that is useful.');

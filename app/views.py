@@ -1,8 +1,15 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request
 from app import app
 from forms import LoginForm
+import inspect
 
-    
+@app.route('/coords', methods = ['POST'])
+def coords():
+  lat = request.form['latitude']
+  lon = request.form['longitude']
+  coords = {'latitude': lat, 'longitude': lon}
+  return 'SUCCESS!!!'
+
 @app.route('/index')
 def index():
   user = { 'name' : 'Forrest' }
